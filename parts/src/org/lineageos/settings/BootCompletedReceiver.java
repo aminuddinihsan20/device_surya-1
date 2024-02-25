@@ -29,6 +29,7 @@ import androidx.preference.PreferenceManager;
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.display.KcalUtils;
 import org.lineageos.settings.utils.HapticUtils;
+import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -56,6 +57,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Haptic
         HapticUtils.restoreLevel(context);
+
+        // Refresh Rate
+        RefreshUtils.startService(context);
 
         // Thermal Profiles
         ThermalUtils.startService(context);
